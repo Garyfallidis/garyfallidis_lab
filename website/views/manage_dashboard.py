@@ -1,9 +1,10 @@
 import bibtexparser
-from django.core.urlresolvers import reverse
+
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import Http404
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from website.tools import github_permission_required
 from website.forms import (AddEditEventPostForm, AddEditBlogPostForm,

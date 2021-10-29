@@ -1,6 +1,7 @@
-from django.core.urlresolvers import reverse_lazy
+
 from django.conf.urls import url
-from django.contrib.auth.views import logout
+from django.contrib.auth import logout
+from django.urls import reverse_lazy
 from . import views
 
 urlpatterns = [
