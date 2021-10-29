@@ -7,11 +7,12 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.cache import cache
+from django.core.validators import RegexValidator
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.text import slugify
-from django.core.validators import RegexValidator
+from django.urls import reverse
 
 from .tools import has_commit_permission
 
@@ -114,9 +115,8 @@ class EventPost(models.Model):
     def __str__(self):
         return self.title
 
-    @models.permalink
     def get_absolute_url(self):
-        return "/event/%i/" % self.slug
+        return reverse("/event/%i/" % self.slug)
 
 
 class Publication(models.Model):
@@ -316,9 +316,8 @@ class BlogPost(models.Model):
     def created(self):
         return self.posted
 
-    @models.permalink
     def get_absolute_url(self):
-        return "/blog/%i/" % self.slug
+        return reverse("/blog/%i/" % self.slug)
 
 
 class Research(models.Model):
