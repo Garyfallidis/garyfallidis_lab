@@ -1,7 +1,6 @@
 
 from django.conf.urls import url
-from django.contrib.auth import logout
-from django.urls import reverse_lazy
+from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
@@ -39,6 +38,9 @@ urlpatterns = [
 
     # Honeycomb gallery
     url(r'^gallery/$', views.honeycomb, name='gallery'),
+
+    # access denied
+    url(r'^acces_denied/$', views.access_denied, name='access_denied'),
 
     # Admin Panel Dash Board
     url(r'^dashboard/$', views.dashboard, name='dashboard'),
@@ -100,7 +102,7 @@ urlpatterns = [
     url(r'^dashboard/software/$', views.dashboard_software, name='dashboard_software'),
 
     # logout url
-    url(r'^dashboard/logout/$', logout,
-        {'next_page': reverse_lazy('index')}, name='dashboard_logout')
+    url(r'^dashboard/logout/$', auth_views.LogoutView.as_view(),
+        name='dashboard_logout')
 
 ]
