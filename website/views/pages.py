@@ -185,6 +185,12 @@ def dashboard_login(request):
     return render(request, 'website/dashboard_login.html', context)
 
 
+def access_denied(request):
+    context = {'meta': tools.get_meta_tags_dict(title="DIPY - Access Deny"),
+               }
+    return render(request, 'website/access_denied.html', context)
+
+
 def custom404(request):
     context = {'meta': tools.get_meta_tags_dict(title="DIPY - 404 Page Not Found"),
                }

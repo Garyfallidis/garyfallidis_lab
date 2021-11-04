@@ -8,13 +8,9 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.cache import cache
 from django.core.validators import RegexValidator
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.text import slugify
 from django.urls import reverse
-
-from .tools import has_commit_permission
 
 # markdown allowed tags that are not filtered by bleach
 
@@ -265,17 +261,6 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.get_full_name()
-
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    social = instance.social_auth.get(provider='github')
-    access_token = social.extra_data['access_token']
-    has_permission = has_commit_permission(access_token, settings.REPOSITORY_NAME)
-    if created and has_permission:
-        Profile.objects.create(user=instance,
-                               profile_page_markdown="")
-        instance.profile.save()
 
 
 class BlogPost(models.Model):
