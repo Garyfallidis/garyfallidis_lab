@@ -21,7 +21,7 @@ def create_user(strategy, backend, details, user=None, *args, **kwargs):
         access_token = ''
 
     has_permission = has_commit_permission(
-        access_token, settings.DOCUMENTATION_REPO_NAME)
+        access_token, settings.REPOSITORY_NAME)
 
     if not has_permission:
         return redirect('website:access_denied')
