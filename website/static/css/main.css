@@ -7,6 +7,15 @@
 #branding-bar:hover p#iu-campus {
   transform: scale(1.1); }
 
+p a {
+    
+  color: #006298;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: inherit;
+  cursor: pointer;
+}
+
 .left-separator {
   padding-left: 5px;
   padding-right: 5px;

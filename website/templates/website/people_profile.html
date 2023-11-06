@@ -41,10 +41,11 @@
             <div class="panel">
                 {{ profile.profile_page_html | safe }}
             </div>
-        </div>
+        </div> 
         <div class="grid-item">
             <h1> Blog</h1>
             <div class="panel">
+                {% if my_blog_posts %}
                 <ul class="feed">
                     {% for blog_post in my_blog_posts %}
                     <li class="feed-item news">
@@ -58,7 +59,7 @@
                     </li>
                     {% endfor %}
                 </ul>
-
+                {% endif %}
             </div>
         </div>
     </div>

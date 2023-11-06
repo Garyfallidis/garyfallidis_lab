@@ -17,7 +17,7 @@ def youtube_embed_url(value, args=None):
     matches = exp.findall(value)
     processed_str = value
     template = '<div class="youtube-wrapper"><iframe class="youtube-embed" width="{0}" height="{1}" \
-                src="https://www.youtube.com/embed/%s?rel=0&modestbranding=1" \
+                title="youtube-frame" src="https://www.youtube.com/embed/%s?rel=0&modestbranding=1" \
                 frameborder="0" allowfullscreen></iframe></div>'.format(size[0],size[1])
     for match in matches:
         processed_str = processed_str.replace(match[0], template % match[2])
