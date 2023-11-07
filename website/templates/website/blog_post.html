@@ -21,11 +21,10 @@
             <div style="display: inline-block;"><p> Share: </p></div>
             <div style="display: inline-block;">
                 <ul class="social">
-                    <li><a href=""></a></li>
-                    <li><a class="icon-twitter" href="https://twitter.com/share?url={{ request.build_absolute_uri }}" onclick="window.open(this.href);return false;"></a></li>
-                    <li><a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?app_id={{ FACEBOOK_APP_ID }}&sdk=joey&u={{ request.build_absolute_uri }}&display=popup&ref=plugin&src=share_button" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=580')"></a></li>
-                    <li><a class="icon-linkedin" href="#"></a></li>
-                    <li><a class="icon-googleplus" href="#"></a></li>
+                    <li><a class="icon-twitter" href="https://twitter.com/share?url={{ request.build_absolute_uri }}" onclick="window.open(this.href);return false;" aria-label="twitter-icon"></a></li>
+                    <li><a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?app_id={{ FACEBOOK_APP_ID }}&sdk=joey&u={{ request.build_absolute_uri }}&display=popup&ref=plugin&src=share_button" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=580')" aria-label="facebook-icon"></a></li>
+                    <li><a class="icon-linkedin" href="#" aria-label="linkedin-icon"></a></li>
+                    <li><a class="icon-googleplus" href="#" aria-label="google-plus-icon"></a></li>
                 </ul>
             </div>
         </div>

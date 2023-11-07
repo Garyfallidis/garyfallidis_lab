@@ -80,7 +80,15 @@ def event_post(request, slug):
 
 def careers_page(request):
     all_careers = models.CareerModel.objects.first()
-    context = {'all_careers': all_careers}
+    context = {
+        'all_careers': all_careers,
+        'meta': tools.get_meta_tags_dict(title="GRG Careers", keywords=[
+            "phd",
+            "phd careers",
+            "career",
+            "postdoc"
+        ])
+    }
 
     return render(request, 'website/careers.html', context)
 
